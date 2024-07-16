@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2> 원주 :원의 둘레  : 지름 (반지름*2) * 원주율 </h2>
+    <h2> 원의 넓이 :   반지름(세로) *  반지름*원주율 (  가로  )  => 원주율*반지름^2</h2>
+
+    <script>
+        function getpiedata(){
+            let r2= parseFloat(prompt("지름 입력:"))
+            let pie=3.14
+            let length=r2*pie
+            let area=r2/2 * r2/2 * 3.14
+            document.write("<h1>결과: " +length+"," + area +"</h1>")
+        }
+        getpiedata()
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1. 점수를 입력받아서 학점을 출력하기
+        function getGrade(score) {
+            if (score >= 90) {
+                return 'A';
+            } else if (score >= 80) {
+                return 'B';
+            } else if (score >= 70) {
+                return 'C';
+            } else if (score >= 60) {
+                return 'D';
+            } else {
+                return 'F';
+            }
+        }
+
+        // 점수 입력받기 및 학점 출력
+        function inputScore() {
+            let score = parseInt(prompt("점수를 입력하세요:"));
+            let grade = getGrade(score);
+            document.write(`점수: ${score}, 학점: ${grade}<br>`);
+        }
+
+        // 2.1 점수를 3번 입력받아서 학점 출력하기
+        for (let i = 0; i < 3; i++) {
+            inputScore();
+        }
+
+        // 2.2 점수가 음수가 입력되기 전까지 반복하여 점수 입력받기 및 학점 출력하기
+        while (true) {
+            let score = parseInt(prompt("점수를 입력하세요 (음수를 입력하면 종료):"));
+            if (score < 0) {
+                break;
+            }
+            let grade = getGrade(score);
+            document.write(`점수: ${score}, 학점: ${grade}<br>`);
+        }
+
+        // 3. 구구단 (2단 출력)
+        document.write("<br>구구단 2단 출력:<br>");
+        for (let i = 1; i <= 9; i++) {
+            document.write(`2 x ${i} = ${2 * i}<br>`);
+        }
+
+        // 4. 구구단 (2~5단까지 출력)
+        document.write("<br>구구단 2~5단 출력:<br>");
+        for (let dan = 2; dan <= 5; dan++) {
+            for (let i = 1; i <= 9; i++) {
+                document.write(`${dan} x ${i} = ${dan * i}<br>`);
+            }
+            document.write("<br>");
+        }
+
+        // 5. 별 출력
+        document.write("<br>별 출력:<br>");
+
+        // 5.1 *
+        document.write("*<br><br>");
+
+        // 5.2 *****
+        for (let i = 0; i < 5; i++) {
+            document.write("*");
+        }
+        document.write("<br><br>");
+
+        // 5.3 ***** (3줄)
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 5; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+
+        // 5.4 *
+        //     **
+        //     ***
+        for (let i = 1; i <= 3; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+
+        // 5.5 ***
+        //     **
+        //     *
+        for (let i = 3; i >= 1; i--) {
+            for (let j = 1; j <= i; j++) {
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+
+        // 6. 구구단 while, do~while
+        // 6.1 while
+        let dan = 2;
+        document.write("구구단 2단 (while):<br>");
+        let i = 1;
+        while (i <= 9) {
+            document.write(`${dan} x ${i} = ${dan * i}<br>`);
+            i++;
+        }
+        document.write("<br>");
+
+        // 6.2 do~while
+        dan = 3;
+        i = 1;
+        document.write("구구단 3단 (do~while):<br>");
+        do {
+            document.write(`${dan} x ${i} = ${dan * i}<br>`);
+            i++;
+        } while (i <= 9);
+
+    </script>
+</body>
+</html>
