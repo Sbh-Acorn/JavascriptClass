@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산기</title>
+</head>
+<body>
+
+    <h2>나이 계산기</h2>
+    <p>태어난 날짜를 입력하세요 (형식: YYYY-MM-DD):</p>
+    <input type="date" id="birthdate">
+    <button onclick="calculateAge()">나이 계산하기</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateAge() {
+            // 입력된 태어난 날짜 가져오기
+            let birthdate = document.getElementById("birthdate").value;
+            if (!birthdate) {
+                alert("태어난 날짜를 입력하세요.");
+                return;
+            }
+
+            // 오늘 날짜
+            let today = new Date();
+
+            // 태어난 날짜
+            let birthDate = new Date(birthdate);
+
+            // 밀리초 단위로 차이 계산
+            let diff = today - birthDate;
+
+            // 밀리초를 일 단위로 변환
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            // 결과 출력
+            document.getElementById("result").innerText = `태어난 날로부터 오늘까지 ${days}일 살았습니다.`;
+        }
+    </script>
+</body>
+</html>

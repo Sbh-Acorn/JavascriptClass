@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김치찌개 만들기</title>
+</head>
+<body>
+
+    <h2>김치찌개 만들기</h2>
+    <img src="kimchijigae.jpg" id="kimchi" alt="김치찌개 이미지">
+    <ul id="steps"></ul>
+
+    <script>
+        // 김치찌개 재료
+        let ingredients = [
+            { name: "김치", amount: "200g" },
+            { name: "돼지고기", amount: "100g" },
+            { name: "두부", amount: "1/2 모" },
+            { name: "양파", amount: "1/2 개" },
+            { name: "대파", amount: "1 대" },
+            { name: "다진마늘", amount: "1 큰술" },
+            { name: "고춧가루", amount: "2 큰술" },
+            { name: "된장", amount: "1 큰술" },
+            { name: "물", amount: "3 컵" },
+            { name: "참기름", amount: "1 작은술" },
+            { name: "소금", amount: "적당히" }
+        ];
+
+        // 만들려면
+        function cookKimchiJjigae(ingredients) {
+            let steps = [
+                "냄비에 참기름 " + ingredients.find(i => i.name === "참기름").amount + "을/를 두르고 김치 " + ingredients.find(i => i.name === "김치").amount + "를 볶아준다",
+                "돼지고기 " + ingredients.find(i => i.name === "돼지고기").amount + "을/를 넣고 함께 볶아준다",
+                "양파 " + ingredients.find(i => i.name === "양파").amount + "를 넣고 볶아준다",
+                "다진마늘 " + ingredients.find(i => i.name === "다진마늘").amount + "을/를 넣고 볶아준다",
+                "고춧가루 " + ingredients.find(i => i.name === "고춧가루").amount + "을/를 넣고 볶아준다",
+                "된장 " + ingredients.find(i => i.name === "된장").amount + "을/를 넣고 섞어준다",
+                "물 " + ingredients.find(i => i.name === "물").amount + "을/를 붓고 끓여준다",
+                "두부 " + ingredients.find(i => i.name === "두부").amount + "를 넣고 끓여준다",
+                "대파 " + ingredients.find(i => i.name === "대파").amount + "를 넣고 소금 " + ingredients.find(i => i.name === "소금").amount + "으로 간을 맞춘다"
+            ];
+
+            let stepsElement = document.getElementById("steps");
+            steps.forEach(step => {
+                let li = document.createElement("li");
+                li.innerText = step;
+                stepsElement.appendChild(li);
+            });
+
+            return image.src;
+        }
+        
+        let image = document.getElementById("kimchi");
+        
+        let result = cookKimchiJjigae(ingredients);
+    </script>
+</body>
+</html>
