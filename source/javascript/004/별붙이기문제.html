@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let imgNames= [
+            "media/Penguins.png", 
+            "media/Lighthouse.png",
+            "media/Chrysanthemum.png",
+            "media/Desert.png",
+            "media/Hydrangeas.png",
+            "media/Jellyfish.png",
+            "media/Koala.png",
+            "media/Tulips.png"
+        ];
+        let index = 0;
+        function nextImg(){
+            index++;
+            if(index >= imgNames.length){
+                index = 0;
+            }
+            let gallery = document.querySelector(".gallery");
+            gallery.style.backgroundImage = "url('" + imgNames[index] + "')";
+        }
+        function preImg() {
+            index--;
+            if (index < 0) {
+                index = imgNames.length - 1;
+            }
+            let gallery = document.querySelector(".gallery");
+            gallery.style.backgroundImage = "url('" + imgNames[index] + "')";
+        }
+    </script>
+    <style>
+        .gallery-wrap {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+        }
+        .gallery {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            background-image: url("media/Penguins.png");
+            background-size: cover;
+            background-position: center;           
+        }
+        .leftBtn, .RightBtn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: absolute;
+            top: 120px;
+        }
+        .leftBtn {
+            left: 0px;
+        }
+        .RightBtn {
+            right: 0px;
+        }
+        .star {
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-wrap">
+        <div class="gallery"></div>
+        <div class="leftBtn" onclick="preImg()">p</div>
+        <div class="RightBtn" onclick="nextImg()">n</div>
+
+        <!-- 각 star 요소를 적절한 위치에 배치 -->
+        <div class="star" style="top: 10px; left: 10px;">소</div>
+        <div class="star" style="top: 10px; right: 10px;">소</div>
+        <div class="star" style="bottom: 10px; left: 10px;">소</div>
+        <div class="star" style="bottom: 10px; right: 10px;">소</div>
+        <div class="star" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">소</div>
+    </div>
+</body>
+</html>
