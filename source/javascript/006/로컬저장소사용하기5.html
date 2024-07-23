@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="list">
+
+    </ul>
+    <script>
+        let fruits =  ['apple', 'banana', 'melon'];
+
+        function saveFruits(){
+            localStorage.setItem("fruits",JSON.stringify(fruits));
+        }
+        function initFruits(){
+            let saveList = LocalStorage.getItem("fruits")
+
+            if(saveList != null){
+                fruits=JSON.parse(saveList)
+            }
+
+            let str=""
+            for(let i=0;i<fruits.length;i++){
+                str+=`<li data-id='${i}'>${fruits[i]}<button onclick='deleteItem(this)'>x</button></li>`;
+            }
+            let list=document.querySelector(".list");
+            list.innerHTML=str
+        }
+        function deleteItem(obj){
+            let li = obj.parentElement;
+            let id = li.getAttribute("data-id");
+            li.remove()
+            fruits.splice(id,1)
+            saveFruits();
+        }
+        
+        saveFruits();
+        initFruits();
+    </script>
+</body>
+</html>
